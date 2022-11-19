@@ -1,0 +1,102 @@
+﻿
+
+
+<div class="col-md-6">
+
+
+    <div style="border-style: groove;width:250px">
+
+        <div>
+
+            <p style="margin-left:10px">Ad Soyad</p>
+            <select id="TxtAdSoyad" style="margin-left:10px" name="number">
+                <option>Select a number</option>
+                <option >One</option>
+                <option >Two</option>
+                <option >Three</option>
+            </select>
+            @*
+            <input type="text" style="margin-left:10px" id="TxtAdSoyad" />*@
+            <br />
+
+            <p style="margin-left:10px">Bölüm</p>
+            <input style="margin-left:10px" type="text" id="TxtBölüm" />
+            <br />
+
+            <p style="margin-left:10px">Hobiler</p>
+            <input style="margin-left:10px" type="text" id="TxtHobiler" />
+            <br />
+
+            <p style="margin-left:10px">Sınıf Ogretmeni</p>
+            <input style="margin-left:10px" type="text" id="TxtSınıfOgretmeni" />
+            <br />
+
+            <p style="margin-left:10px">Rehber Ogretmen</p>
+            <input style="margin-left:10px" type="text" id="TxtRehberOgretmen" />
+            <br />
+        </div>
+        <br />
+
+        <button style="margin-left:60px" type="button" id="OgrenciEkle">Ogrenci Ekle</button>
+
+
+    </div>
+</div>
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $("#OgrenciEkle").click(function () {
+
+
+       
+
+
+        let ogrenci = {
+            
+            AdSoyad: $("#TxtAdSoyad").val(),
+
+
+           
+
+            Bölüm: $("#TxtBölüm").val(),
+
+            Hobiler: $("#TxtHobiler").val(),
+
+
+            SınıfOgretmeni: $("#TxtSınıfOgretmeni").val(),
+
+
+            RehberOgretmen: $("#TxtRehberOgretmen").val(),
+
+
+
+
+
+
+        };
+
+        $.ajax({
+            type: "post",
+
+            url: "/Home/AddOgrenci/",
+
+            data: ogrenci,
+
+            success: function (func) {
+                let result = jQuery.parseJSON(fun);
+                alert("Ogrenci eklendi");
+            }
+        });
+
+       
+
+    });
+</script>
+
+<script>
+    $('#OgrenciEkle').click(function () { location.reload(); });
+   
+ 
+</script>

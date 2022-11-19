@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Core.Model.Ogrenci>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+
+    <div class="row ">
+
+        <div class="col-md-6" id="list">
+
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Ad Soyad
+                        </th>
+                        <th>
+                            BolumId
+                        </th>
+                        <th>
+                            Bolum
+                        </th>
+                        <th>
+                            Hobiler
+                        </th>
+
+                        <th>
+                            SınıfOgretmeni
+                        </th>
+
+                        <th>
+                            RehberOgretmen
+                        </th>
+
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.AdSoyad
+                            </td>
+                            <td>
+                                @item.BolumId
+                            </td>
+
+                            <td>
+                                @item.Bolum
+                            </td>
+
+                            <td>
+                                @item.Hobiler
+                            </td>
+
+                            <td>
+                                @item.SınıfOgretmeni
+                            </td>
+
+                            <td>
+                                @item.RehberOgretmen
+                            </td>
+
+                            <td>
+                          @*      <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>*@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-6">
+
+
+            @Html.Partial("Create");
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
